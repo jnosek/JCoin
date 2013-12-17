@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JCoin.Base", "JCoin.Base\JC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JCoin.Test", "JCoin.Test\JCoin.Test.csproj", "{B528434C-9057-435F-B915-910E7ED8ED8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JCoin.Client", "JCoin.Client\JCoin.Client.csproj", "{0D629D98-745E-42E7-A1CC-4C91F25E93B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JCoin.Wallet", "JCoin.Wallet\JCoin.Wallet.csproj", "{AE99CC5F-C359-4E6C-BD7F-E6997781C105}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B528434C-9057-435F-B915-910E7ED8ED8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B528434C-9057-435F-B915-910E7ED8ED8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B528434C-9057-435F-B915-910E7ED8ED8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D629D98-745E-42E7-A1CC-4C91F25E93B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D629D98-745E-42E7-A1CC-4C91F25E93B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D629D98-745E-42E7-A1CC-4C91F25E93B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D629D98-745E-42E7-A1CC-4C91F25E93B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE99CC5F-C359-4E6C-BD7F-E6997781C105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE99CC5F-C359-4E6C-BD7F-E6997781C105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE99CC5F-C359-4E6C-BD7F-E6997781C105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE99CC5F-C359-4E6C-BD7F-E6997781C105}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

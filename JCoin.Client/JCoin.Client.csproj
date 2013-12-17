@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B528434C-9057-435F-B915-910E7ED8ED8B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{0D629D98-745E-42E7-A1CC-4C91F25E93B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JCoin.Test</RootNamespace>
-    <AssemblyName>JCoin.Test</AssemblyName>
+    <RootNamespace>JCoin.Client</RootNamespace>
+    <AssemblyName>JCoin.Client</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,8 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,22 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="BlockReader.cs" />
+    <Compile Include="BlockPrettyWriter.cs" />
+    <Compile Include="FolderBlockChain.cs" />
+    <Compile Include="INetwork.cs" />
+    <Compile Include="NetworkService.cs" />
+    <Compile Include="Peer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <Compile Include="TransactionConverter.cs" />
+    <Compile Include="UlongConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JCoin.Base\JCoin.Base.csproj">
       <Project>{28d87456-4362-4991-92af-f19b1998a828}</Project>
       <Name>JCoin.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JCoin.Client\JCoin.Client.csproj">
-      <Project>{0d629d98-745e-42e7-a1cc-4c91f25e93b4}</Project>
-      <Name>JCoin.Client</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

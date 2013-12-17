@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,7 @@ namespace JCoin.Base
 {
     public class Block
     {
-        static readonly JsonSerializer serializer = new JsonSerializer();
+        static JsonSerializer serializer = new JsonSerializer();
 
         public ulong PreviousBlockId { get; set; }
         public DateTime Timestamp { get; set; }
@@ -34,36 +35,15 @@ namespace JCoin.Base
 
         public byte[] GetBytes()
         {
-            using (var stream = new MemoryStream())
-            using (var writer = new StreamWriter(stream))
-            {
-                serializer.Serialize(writer, this);
-                writer.Flush();
-
-                return stream.GetBuffer();
-            }
+            return serializer.ToBytes(this);
         }
 
         public override string ToString()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented, new UlongConverter());
-        }
-
-        class UlongConverter : JsonConverter
-        {
-            public override bool CanConvert(Type objectType)
+            using (var writer = new StringWriter())
             {
-                return objectType == typeof(ulong);
-            }
-
-            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-            {
-                throw new NotImplementedException();
-            }
-
-            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-            {
-                writer.WriteValue(string.Format("{0:X}", value));
+                serializer.Serialize(writer, this);
+                return writer.ToString();
             }
         }
     }

@@ -8,11 +8,6 @@ namespace JCoin.Base
 {
     public class TransferTransaction : Transaction
     {
-        public TransferTransaction()
-        {
-            
-        }
-
         public override TransactionType Type
         {
             get { return TransactionType.Transfer; }

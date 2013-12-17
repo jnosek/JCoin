@@ -45,8 +45,8 @@
   <ItemGroup>
     <Compile Include="Base58Encoding.cs" />
     <Compile Include="Block.cs" />
-    <Compile Include="Coin.cs" />
     <Compile Include="HashFunction.cs" />
+    <Compile Include="IBlockChain.cs" />
     <Compile Include="JsonSerializerExtensions.cs" />
     <Compile Include="ProofOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

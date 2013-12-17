@@ -18,8 +18,6 @@ namespace JCoin.Base
                 serializer.Serialize(writer, o);
                 writer.Flush();
 
-                stream.Seek(0, SeekOrigin.Begin);
-
                 return stream.GetBuffer();
             }
         }

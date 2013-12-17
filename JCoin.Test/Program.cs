@@ -1,4 +1,5 @@
 ﻿using JCoin.Base;
+using JCoin.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace JCoin.Test
         {
             var cryptoFunction = MD5.Create();
 
+            var chain = new FolderBlockChain();
+
             var block = new Block();
             block.Transactions = new [] 
             { 
@@ -23,6 +26,17 @@ namespace JCoin.Test
                 CreateDummy(), 
                 CreateDummy()
             };
+
+            try
+            {
+                var headBlock = chain.Head();
+
+                block.PreviousBlockId = headBlock.Id;
+            }
+            catch
+            {
+                block.PreviousBlockId = 0;
+            }
 
             byte[] hashBytes = new byte[0];
             uint nonce = 0;
@@ -49,7 +63,12 @@ namespace JCoin.Test
 
             var endTime = DateTime.Now;
 
-            Console.WriteLine("End Time: {0}\nElapsed Time: {1}\nVerified Block:\n\n{2}", endTime, (endTime - startTime), block);
+            Console.WriteLine("End Time: {0}\nElapsed Time: {1} ms\nVerified Block:\n\n", endTime, (endTime - startTime).Milliseconds);
+
+            var formatter = new BlockPrettyWriter(Console.Out);
+            formatter.Write(block);
+
+            chain.Write(block);
 
             Console.ReadKey();
         }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace JCoin.Base
 {
-    public class Coin
+    public interface IBlockChain
     {
-        public ulong Id { get; set; }
+        void Write(Block b);
+        Block Read(ulong id);
+        Block Head();
     }
 }
